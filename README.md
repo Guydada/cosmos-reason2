@@ -111,11 +111,13 @@ CUDA variants:
 | CUDA 12.8 | `--extra cu128` | [NVIDIA Driver](https://docs.nvidia.com/cuda/archive/12.8.1/cuda-toolkit-release-notes/index.html#cuda-toolkit-major-component-versions) |
 | CUDA 13.0 | `--extra cu130` | [NVIDIA Driver](https://docs.nvidia.com/cuda/archive/13.0.0/cuda-toolkit-release-notes/index.html#cuda-toolkit-major-component-versions) |
 
-For DGX Spark and Jetson AGX, you must use CUDA 13.0. Additionally, you must set `TRITON_PTXAS_PATH` to your system `PTXAS`:
+For DGX Spark and Jetson AGX Thor, you must use CUDA 13.0. Additionally, you must set `TRITON_PTXAS_PATH` to your system `PTXAS`:
 
 ```shell
 export TRITON_PTXAS_PATH="/usr/local/cuda/bin/ptxas"
 ```
+
+For Jetson AGX Orin on JetPack 7, use `--extra cu130` without `TRITON_PTXAS_PATH`. See the [Orin setup guide](docs/jetson-orin-setup.md).
 
 </details>
 
@@ -136,7 +138,7 @@ CUDA variants:
 | CUDA 12.8 | `--build-arg=CUDA_VERSION=12.8.1` | [NVIDIA Driver](https://docs.nvidia.com/cuda/archive/12.8.1/cuda-toolkit-release-notes/index.html#cuda-toolkit-major-component-versions) |
 | CUDA 13.0 | `--build-arg=CUDA_VERSION=13.0.0` | [NVIDIA Driver](https://docs.nvidia.com/cuda/archive/13.0.0/cuda-toolkit-release-notes/index.html#cuda-toolkit-major-component-versions) |
 
-For DGX Spark and Jetson AGX, you must use CUDA 13.0.
+For DGX Spark and Jetson AGX Thor, you must use CUDA 13.0.
 
 Run the container:
 
@@ -173,6 +175,7 @@ Examples have been tested on the following devices:
 | NVIDIA GB200 | 13.0 | inference |
 | NVIDIA DGX Spark | 13.0 | inference |
 | NVIDIA Jetson AGX Thor (Edge) | 13.0 | Transformers inference. vLLM inference is coming soon! |
+| NVIDIA Jetson AGX Orin (Edge) | 13.0 | JetPack 7 install and CUDA check only. See [Orin setup guide](docs/jetson-orin-setup.md). |
 
 ### Transformers
 
